@@ -1,6 +1,16 @@
 require 'rspec'
 require 'word'
 
+describe('#save') do
+    it("saves a word") do
+        word1 = Word.new("humanoid", "looking or acting like a human beibng", nil)
+        word1.save()
+        word2 = Word.new("humanoid", "looking or acting like a human beibng", nil)
+        word2.save()
+        expect(Word.all).to(eq([word1, word2]))
+    end
+end
+
 describe '#Word' do
     describe('.all') do
         it("returns an empty array when there are no words") do
@@ -8,15 +18,6 @@ describe '#Word' do
         end
     end
 
-    describe('#save') do
-        it("saves a word") do
-            word1 = Word.new("humanoid", "looking or acting like a human beibng", nil)
-            word1.save()
-            word2 = Word.new("humanoid", "looking or acting like a human beibng", nil)
-            word2.save()
-            expect(Word.all).to(eq([word1, word2]))
-        end
-    end
 
     describe('#==') do
         it("is the same word if it has the same attributes as another word ") do
