@@ -28,7 +28,7 @@ describe '#Word' do
     before(:each) do
         Word.clear()
     end
-    
+
     describe('.all') do
         it("returns an empty array when there are no words") do
             expect(Word.all).to(eq([]))
@@ -41,6 +41,16 @@ describe '#Word' do
             word1 = Word.new("cat", "sharp clawed small mammals that pretend they don't love you", nil)
             word2 = Word.new("cat", "sharp clawed small mammals that pretend they don't love you", nil)
             expect(word1).to(eq(word2))
+        end
+    end
+
+    describe('.find') do
+        it("finds a word by id") do
+            word1 = Word.new("mammal", "organism with fur", nil)
+            word1.save()
+            word2 = Word.new("amphibian", "semiaquatic reptile-like organisms with delicate skin", nil)
+            word2.save()
+            expect(Word.find(word1.id)).to(eq(word1))
         end
     end
 end
