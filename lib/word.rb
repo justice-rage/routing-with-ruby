@@ -21,4 +21,9 @@ class Word
     def save
         @@words[self.id] = Word.new(self.name, self.definitions, self.id)
     end
+
+    def self.clear
+        @@words = {}
+        @@total_rows = 0
+    end
 end
