@@ -59,7 +59,7 @@ describe '#Word' do
             word1 = Word.new("Montain", "a large geological formation", nil)
             word1.save()
             word1.update("mountain")
-            expect(word1.name).to(eq("A love supreme"))
+            expect(word1.name).to(eq("mountain"))
         end
     end
 end
