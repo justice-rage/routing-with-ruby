@@ -37,6 +37,15 @@ get('/') do
             c. delete a definition - delete(/words/:id)"
   end
 
+  patch('/words/:id') do
+    "This route will update a word."
+  end
+
+  delete('/albums/:id') do
+    "This route will delete an album."
+  end
+  
+
   get('/test') do
     erb(:whatever)
   end
