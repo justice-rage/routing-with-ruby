@@ -1,5 +1,7 @@
 require('sinatra')
 require('sinatra/reloader')
+require('./lib/word')
+require('pry')
 also_reload('lib/**/*.rb')
 
 get('/') do
@@ -32,5 +34,9 @@ get('/') do
             a. add a definition - get(/words/:id)
                 · Unsure of route path for adding sole definitions
             b. update/edit a deifintion - patch(/words/:id)
-            c. delete a definition - delete(/words/:id)
+            c. delete a definition - delete(/words/:id)"
+  end
+
+  get('/test') do
+    erb(:whatever)
   end
