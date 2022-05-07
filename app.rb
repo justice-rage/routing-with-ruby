@@ -4,12 +4,21 @@ require('./lib/word')
 require('pry')
 also_reload('lib/**/*.rb')
 
+require('sinatra')
+require('sinatra/reloader')
+require('./lib/word')
+require('pry')
+also_reload('lib/**/*.rb')
+
 get('/') do
-    "Home Page - MVP:
-        1) Create button that routes to /new-word-form
-        2) List all /new-word-form created words on home page
-        3) Each listed word is a link routing to /words/:id"
-  end
+  @words = Word.all
+  erb(:words)
+end
+
+get('/words') do
+  @words = Word.all
+  erb(:words)
+end
   
   get('/new-word-form') do
     "New Word Form - MVP: 
@@ -41,7 +50,7 @@ get('/') do
     "This route will update a word."
   end
 
-  delete('/albums/:id') do
+  delete('/words/:id') do
     "This route will delete an album."
   end
   
