@@ -14,19 +14,22 @@ get('/words') do
   erb(:words)
 end
   
-  get('/new-word-form') do
+  get('/words/new-word-form') do
     "New Word Form - MVP: 
         Form Structure:
             1) User text input field - write a word
             2) Submit button - add word to be displayed 
                with editable definition or definitions"
+
+    erb(:new_word)
   end
 
   post('/words') do
-    "Word List - MVP:
-    1) This route will add a word to our list of words on our home page.
-        a. Unaccesible by typing in the url
-        b. Will use /new-word-form specifying a POST action to reach this route."
+    name = params[:word_name]
+    word = Word.new(name, nil)
+    word.save()
+    @words = Word.all()
+    erb(:words)
   end
   
   get('/words/:id') do
@@ -45,7 +48,7 @@ end
   end
 
   delete('/words/:id') do
-    "This route will delete an album."
+    "This route will delete an word."
   end
   
 
