@@ -62,4 +62,15 @@ describe '#Word' do
             expect(word1.name).to(eq("mountain"))
         end
     end
+
+    describe('#delete') do
+        it("deletes a word by id") do
+            word1 = Word.new("blue", "the color blue", nil)
+            word1.save()
+            word2 = Word.new("red", "the color red", nil)
+            word2.save()
+            word1.delete()
+            expect(Word.all).to(eq([word2]))
+        end
+    end
 end
