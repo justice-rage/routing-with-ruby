@@ -33,14 +33,8 @@ end
   end
   
   get('/words/:id') do
-    "Word Page - MVP:
-        1) This route will take a user to a word specific page based on its ID. 
-        The value of ID here is #{params[:id]}
-        2) Create a word definition form with an ID of #{params[:id]}:
-            a. add a definition - get(/words/:id)
-                · Unsure of route path for adding sole definitions
-            b. update/edit a deifintion - patch(/words/:id)
-            c. delete a definition - delete(/words/:id)"
+    @word = Word.find(params[:id].to_i())
+    erb(:album)
   end
 
   patch('/words/:id') do
