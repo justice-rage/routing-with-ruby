@@ -6,7 +6,6 @@ class Word
 
     def initialize(name, id)
         @name = name
-        # @definitions = definitions
         @id = id || @@total_rows += 1
     end
 
