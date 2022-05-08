@@ -1,15 +1,14 @@
-<h1>The Dictionary</h1>
-
-<h3>All Recorded Words</h3>
+<h1>Home Page - The Dictionary</h1>
+<h3>Defined Words:</h3>
 
 <% if @words.any? %>
   <ul>
-  <% @words.each do |word| %>
-    <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
-  <% end %>
+    <% @words.each do |word| %>
+      <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+    <% end %>
   </ul>
 <% else %>
   <p>There are currently no words to display.</p>
 <% end %>
 
-<a href="/words/new-word-form">Add a new word</a>
+<a href="/words/new">New Word Submissions</a>
